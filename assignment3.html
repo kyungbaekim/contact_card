@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact Card</title>
+    <script src="http://code.jquery.com/jquery-2.2.2.js"></script>
+    <link rel="stylesheet" href="assignment3.css">
+    <script>
+    $(document).ready(function(){
+      $('#check').submit(function(){
+        return false
+      });
+      $(document).on('click', '#add', function(){
+        var fName = $('#firstName').val();
+        var lName = $('#lastName').val();
+        var description = $('#description').val();
+        $('.display_data').append("<div class='card'><h1>" + fName + " " + lName +"</h1><p>Click here for description!</p></div>");
+        $(document).on('click', '.card', function(){
+          $(this).html("<div class='card'>" + description +"</div><br>");
+        })
+      })
+    });
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="enter_data">
+        <p>First name: <input type="text" id="firstName"></input></p>
+        <p>Last name: <input type="text" id="lastName"></input></p>
+        <p>Description:<br><textarea rows="10" cols="40" id="description"></textarea></p><br>
+        <p><button id="add">Add User</button></p>
+      </div>
+      <div class="display_data"></div>
+    </div>
+  </body>
+</html>
